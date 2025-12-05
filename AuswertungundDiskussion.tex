@@ -12,4 +12,77 @@ Mit $\alpha_{AB} = \alpha_A \alpha_B$ vereinfacht sich das zu
 U_{th} = \alpha_{AB} \cdot (T_2 - T_1)
 \end{equation}
 
-Trägt man die Temperaturdifferenz, welche in diesem Fall einfach die gemessene Temperatur gegen die gemessene Spannung auf so erhält man folgendes Diagramm.
+Trägt man die Temperaturdifferenz, welche in diesem Fall einfach die gemessene Temperatur in Grad Celsius ist, da die gegen die gemessene Spannung auf so ergibt sich Diagramm \ref{bi:Ut1}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth, keepaspectratio]{Bilder/Ut1.png}
+    \label{bi:Ut1}
+    \caption{Die Spannung gemessen in mV aufgetragen gegen die Temperaturdifferenz. Die Ausgleichgerade wurde mittels Numpy.polyfit ersten Grades erstellt. Die Grenzgeraden Mittels einer Funktion welche die Grenzeraden so legt, dass $\frac{2}{3}$ aller Punkte zwischen den beiden Grenzgeraden liegen. Alle drei Geraden laufen durch den Schwerpunkt.}
+\end{figure}
+
+Mit der Steigung der Ausgleichsgerade aus Tabelle \ref{tb:steig1} ergibt sich ein Seebeck-Koeffizient für das gegebene Thermoelement von 
+\begin{equation}
+  \alpha_{\mathrm{AB}} = 4,49 \cdot 10^{-5} \frac{\mathrm{V}}{\mathrm{K}}
+\end{equation}
+
+Der Fehler des Seebeck-Koeffizient ergibt sich aus den Steigungen der Geraden welche in Tabelle \ref{tb:steig1} abgebildet sind.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c c}
+        \hline
+        Gerade &  Steigung ($\frac{\mathrm{mV}}{\mathrm{K}}$)\\
+        \hline
+        Ausgleichsgerade   & 0,0449    \\
+        Grenzgerade 1   & 0,0426   \\
+        Grenzgerade 2 & 0,0472   \\
+        \hline
+    \end{tabular}
+    \caption{Die Steigungen der Ausgleichs- und Grenzgeraden}
+    \label{tb:steig1}
+\end{table}
+
+Verwendet man diese Werte ergibt sich folgender Fehler.
+
+\begin{equation}
+  \Delta \alpha_{\mathrm{AB}} = \frac{0,0472 \frac{\mathrm{mV}}{\mathrm{K}} - 0,0426 \frac{\mathrm{mV}}{\mathrm{K}}}{2} = 0,0023 \frac{\mathrm{mV}}{\mathrm{K}} 
+\end{equation}
+
+Insgesamt ergibt sich also folgendes Ergebniss.
+
+\begin{equation}
+  \alpha_{\mathrm{AB}} = (4,49 \pm 0,23) \cdot 10^{-5} \frac{\mathrm{V}}{\mathrm{K}}
+\end{equation}
+
+Der relativer Fehler $\frac{\Delta \alpha}{\alpha}$ beträgt ca. 5\% beträgt. Dieser Fehler scheint, realistisch da das Spannungsmessgerät als auch das Temperaturmessgerät Messungenaugkeiten haben. Des weiteren wurde beim erhitzen des Wassers nicht umgerührt, was dazuführen kann das bei den Kontaktpunkten des Thermoelements eine andere Temperatur als bei dem Thermometers ist, was zu einer Verfälschung des Ergebnisses führen könnte. Dieser Fehler ist dann aber höchstwahrscheinlich konstant, also nicht in $\Delta \alpha$ erkennbar, da sich das Wasser trotzdem konstant erwärmt. Es wär somit ein Systematischer Fehler. Zudem ist vermerkt das der Thermometer während der Messung verrutscht ist. Da dies aber, zumindest nicht deutlich, in Abbildung \ref{bi:Ut1} zu erkennen ist, ist davon auszugehen das der Gerade beschriebene Effekt nicht gravierend ist.
+
+
+
+Wie vermutet ist ein linearer Zusammenhang zwischen der Temperaturdifferenz und der Spannung in Abbildung \ref{bi:Ut1} zu sehen.
+% Vergleicht man diesen Wert mit dem theoretischen wert von Gleichung \ref{} ergibt sich folgender Seebeck-Koeffizient. 
+
+% \begin{equation}
+% \alpha = \frac{3k_\mathrm{B}}{2e} = 12,9 \cdot 10^{-5} \frac{\mathrm{V}}{\mathrm{K}
+% \end{equation}
+
+\subsection{Peltier Element}
+Stellt man den Zeitlichen Verlauf der Thermospannung $U_{\mathrm{th}(t)}$ für die verschiedenen Stromstärken grafisch da, so erhält man Abbildung \ref{bi:Utversc}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth, keepaspectratio]{Bilder/utverschiedenespannugen.png}
+    \label{bi:Utversc}
+    \caption{Die Spannung gemessen in mV aufgetragen gegen vergangene Zeit t in s nach dem Einschalten der Stromquelle bzw. nach dem ändern des Stroms.}
+\end{figure}
+
+Der Sprung der Kurve von $I = 2,4 $ A bei ca $t = 80$s  lässt sich durch das Spannungsmessgerät erklären. Da dieses keine Spannungen unter 0,5 mV Messen kann, zeigt dieses bis zum Erreichen von $U_{\mathrm{th}} = 0,5$mV eine Spannung von  $U_{\mathrm{th}} = 0$mV  an und springt dann plötzlich auf von $U_{\mathrm{th}} = 0,5$ mV.
+
+Da das selbe Thermoelement wie bei der ersten Messung verwendet wurde und  
+
+
+
+
+
+
