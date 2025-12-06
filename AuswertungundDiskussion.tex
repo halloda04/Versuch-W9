@@ -37,7 +37,7 @@ Der Fehler des Seebeck-Koeffizient ergibt sich aus den Steigungen der Geraden we
         Ausgleichsgerade   & 0,0449    \\
         Grenzgerade 1   & 0,0426   \\
         Grenzgerade 2 & 0,0472   \\
-        \hline
+    
     \end{tabular}
     \caption{Die Steigungen der Ausgleichs- und Grenzgeraden}
     \label{tb:steig1}
@@ -47,6 +47,7 @@ Verwendet man diese Werte ergibt sich folgender Fehler.
 
 \begin{equation}
   \Delta \alpha_{\mathrm{AB}} = \frac{0,0472 \frac{\mathrm{mV}}{\mathrm{K}} - 0,0426 \frac{\mathrm{mV}}{\mathrm{K}}}{2} = 0,0023 \frac{\mathrm{mV}}{\mathrm{K}} 
+  \label{seefehler}
 \end{equation}
 
 Insgesamt ergibt sich also folgendes Ergebniss.
@@ -74,15 +75,142 @@ Stellt man den Zeitlichen Verlauf der Thermospannung $U_{\mathrm{th}(t)}$ für d
     \centering
     \includegraphics[width=\linewidth, keepaspectratio]{Bilder/utverschiedenespannugen.png}
     \label{bi:Utversc}
-    \caption{Die Spannung gemessen in mV aufgetragen gegen vergangene Zeit t in s nach dem Einschalten der Stromquelle bzw. nach dem ändern des Stroms.}
+    \caption{Die Spannung gemessen in mV aufgetragen gegen vergangene Zeit t in s nach dem Einschalten der Stromquelle bzw. nach dem ändern der Stromstärke.}
 \end{figure}
 
-Der Sprung der Kurve von $I = 2,4 $ A bei ca $t = 80$s  lässt sich durch das Spannungsmessgerät erklären. Da dieses keine Spannungen unter 0,5 mV Messen kann, zeigt dieses bis zum Erreichen von $U_{\mathrm{th}} = 0,5$mV eine Spannung von  $U_{\mathrm{th}} = 0$mV  an und springt dann plötzlich auf von $U_{\mathrm{th}} = 0,5$ mV.
+Der Sprung der Kurve von $I = 2,4 $ A bei ca $t = 80$s  lässt sich durch das Spannungsmessgerät erklären. Da dieses keine Spannungen unter 0,5 mV Messen kann, zeigt dieses bis zum Erreichen von $U_{\mathrm{th}} = 0,5$mV eine Spannung von  $U_{\mathrm{th}} = 0$mV  an und springt dann plötzlich auf von $U_{\mathrm{th}} = 0,5$ mV. Die beste Effektivkühlung der gemessenen Werte, erhält man bei einer Stromstärke von $I = 3,2 $ A. Dies liegt daran das bei einer größeren Stromstärke die Erwärmung durch den ohmschen Wiederstand stärker wächst als die abkühlung durch das Peltier-Element. 
 
-Da das selbe Thermoelement wie bei der ersten Messung verwendet wurde und  
+Da das selbe Thermoelement wie bei der ersten Messung verwendet wurde und die Referenzthemperatur ebenfalls 0°C ist, kann $T_{\mathrm{O}}$ also die Temperatur am Oberseite des Peltier Element mit der gemessenen Thermopannung $U_{\mathrm{th}}$ errechnet Werden. Die Formel dafür
+
+\begin{equation}
+T_{\mathrm{O}} = \frac{U_{\mathrm{th}}}{\alpha_{\mathrm{AB}}}
+\end{equation}
+
+folgt aus Gleichung \ref{Thermospannung} Der Größtfehler errechnet sich mit
+\begin{equation}
+\label{eq:Groesztfehler}
+\Delta T_{\mathrm{O}} = 
+\pm \left(
+\left| \frac{\partial T_O}{\partial U_{\mathrm{th}}} \right| \, \Delta U_{\mathrm{th}} 
++ \left| \frac{\partial T_O}{\partial \alpha_{AB}} \right| \, \Delta \alpha_{AB} 
+\right)
+= \pm \left(
+\frac{\Delta U_{\mathrm{th}}}{\alpha_{AB}} + \frac{U_{\mathrm{th}} \, \Delta \alpha_{AB}}{\alpha_{AB}^2} 
+\right) .
+\end{equation}
 
 
+In Tablle \ref{tb:to} sind die daraus folgenden Temperaturdifferenzen zu sehen. 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c | c | c}
+        \hline
+        $ I $(A) &  $T_{\mathrm{O}}$ (°C) & $\Delta T_{\mathrm{O,U}}$ (K)\\
+        \hline
+        0,8  & 7,13 & -8,97 \\
+        1,6  & 1,11 FEHLER & -15,09 \\
+        2,4  & -2,45 &  -18,65\\
+        3,2  & -3,79 & -19,99 \\
+        4,0  & -3,34 & -19,54 \\
+        
+    \end{tabular}
+    \caption{Die Temperatur oben am Petierelement und der Bertrag der Differenz Unten-Oben für die verschiedenen Stromstärken}
+    \label{tb:to}
+\end{table}
 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth, keepaspectratio]{Bilder/deltatgegenI.png}
+    \label{bi:DeltatgegenI}
+    \caption{Der Betrag der Temperaturdifferenzen aus Tabelle \ref{tb:to} der jeweiligen Stromstärken. Mit Ausgleichsgerade. Die Ausgleichsgerade wurde mittels Numpy.polyfit erstellt. Es wurde ein Polynom 2ten Grades verwendet. } 
+\end{figure}
+
+Das Maximum der Kurve befindet sich bei $I = 3.34$ A es herscht ein Temperatur unterschied von $20.20$ °C. Diese Werte haben aber keinen großen Erkenntnissgewinn da sie ganz Konkret von dem Aufbau des Petier-Elements abhäging sind, z.B der Isolierung, dem Ohmschen Wiederstand etc. Die Vermutug das es ein Solches Maximum für die Kühlleistung gibt hat sich aber bestätigt. Ausserdem ist ein Exponentieller Zusammenhang zwischen $I$ und $\Delta T$ festgestellt. MEHR
+
+Nun Soll der Peltier-Koeffizient $\Pi$ mit Gleichung \ref{effektive_Kühlung} berechnet werden. Formt man diese zu 
+
+\begin{equation}
+\frac{\Delta T_{\mathrm{O,U}}}{I} = \frac{1}{2c} \cdot U - \frac{\Pi}{c}
+\label{gl:toui}
+\end{equation}
+
+um, so kann man c mit Hilfe der Steigung der Ausgleichsgerade in Abbildung \ref{} errechen. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth, keepaspectratio]{Bilder/tiu.png}
+    \label{bi:tiu}
+    \caption{Die Temperaturdifferenzen aus Tabelle \ref{tb:to} geteilt durch die jeweiligen Stromstärken aufgetragen gegen die Spannungen.  Mit Ausgleichsgerade. Die Ausgleichsgerade wurde mittels Numpy.polyfit erstellt. Es wurde ein Polynom 1ten Grades verwendet. } 
+\end{figure}
+
+Die Steigungen $m$ und die y-Achsenabschnitte $t$ sind in Tabelle \ref{tb:steig2} zu sehen.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c  c c}
+        \hline
+        Gerade &  Steigung ($m \frac{\mathrm{K}}{\mathrm{W}}$) & y-Achsenabschnitt $t $ $(\frac{\mathrm{K}}{\mathrm{A}})$\\
+        \hline
+        Ausgleichsgerade   & 0,597 & -12,782   \\
+        Grenzgerade 1   & 0,545 & -12,350   \\
+        Grenzgerade 2 & 0,655 & -13,256   \\
+    
+    \end{tabular}
+    \caption{Die Steigungen der Ausgleichs- und Grenzgeraden}
+    \label{tb:steig2}
+\end{table}
 
 
+Aus Gleichung \ref{gl:toui} folgt
+\begin{equation}
+m = \frac{1}{2c} \Leftrightarrow c = \frac{1}{2m} = 0,83 \frac{\mathrm{W}}{\mathrm{K}}
+\end{equation}
+
+für die Proportionalitätskonstante $c$ und für den Peltier-Koeffizient
+\begin{equation}
+t = - \frac{\Pi}{c} \Leftrightarrow \Pi = -t \cdot  c = 10,615 V
+\end{equation}
+
+Dabei Werden die Fehler der Steigung und des y-Achsenabschnitts wie bei dem Fehler des Seebeck-Koeffizient (Gleichung \ref{seefehler}) bestimmt. Mit Werten aus Tablle \ref{tb:steig2} ergibt sich
+
+\begin{equation}
+\Delta m = 0,055~,~\Delta t = 0,453
+\end{equation}
+
+Womit sich dann für die abgeleitete Größe c ein Fehler von 
+
+\begin{equation}
+\Delta c = \pm \left( \left| \frac{\partial c}{\partial m} \right| \Delta m \right)
+           = \pm \frac{\Delta m}{2 m^{2}}
+           \approx \pm 0{,}040\,\frac{\mathrm{W}}{\mathrm{K}} \, .
+\end{equation}
+ergibt. Der Fehler des Peltier-Koeffizienten ist durch
+\begin{equation}
+\Delta \Pi
+= \pm \left( 
+\left| \frac{\partial \Pi}{\partial c} \right| \Delta c
++ 
+\left| \frac{\partial \Pi}{\partial t} \right| \Delta t
+\right)
+= \pm (t \cdot \Delta c + c \cdot \Delta t)
+\approx \pm 0{,}781\,\mathrm{V}.
+\end{equation}
+
+Nun soll die oulsche-Wärmeleistung und die joulsche-Wärmeleistung seperat voneinander betrachtet werden. Trägt man beide Leistungen gegen die Stromstärke $I$ auf so erhält man Abbildung \ref{bi:Leistungen}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth, keepaspectratio]{Bilder/Leistungen.png}
+    \label{bi:Leistungen}
+    \caption{Die Peltier-Wärmeleistung in Rot und die joulsche-Wärmeleistung in Schwarz aufgetragen gegen die Stromstärke.  Die Ausgleichsgerade der joulsche-Wärmeleistung wurde mittels Numpy.polyfit erstellt. Es wurde ein Polynom 2ten Grades verwendet. } 
+\end{figure}
+
+Wie Vermutet ist die joulsche-Wärmeleistung exponentiell von der Stromstärke abhängig. Das lässt sich erklären in dem man das Peltier-Element als ohmeschen Wiederstand annimmt und somit für die Wärmeleistung 
+
+\begin{equation}
+P = R \cdot I^2
+\end{equation}
+
+folgt. Die Peltier-Wärmeleistung verläuft linear, ... Des Weitern kann die Vermutung die aus Abbildung \ref{bi:Utversc} aufgestellt wurde, dass bei der Stromstärke von $I = 4$A die joulsche-Wärmeleistung stärker als die Peltier-Wärmeleistung steigt hat sich bestätigt. Während die Steigung der Peltier-Wärmeleistung konstant $\Pi = 10,615 \frac{\mathrm{W}}{\mathrm{A}} $ beträgt, hat die joulsche-Wärmeleistung am Punkt $I = 4$A eine Steigung von $27.74 \frac{\mathrm{W}}{\mathrm{A}}$ 
