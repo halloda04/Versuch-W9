@@ -1,101 +1,87 @@
 \section{Theoretische Grundlagen}
 
 \subsection{Seebeck-Effekt}
-Der Seebeck-Effeckt ist einer von den drei Thermoelektrischen-Effekten, 
-er tritt innerhalb eines homogenen Leiters auf wenn ein 
-Temperaturgefälle $\Delta T$ existiert. Dieses Termperatur Gefälle 
-löst innerhalb des Leiters einen Diffusionsstrom aus. Durch diesen 
-Diffusionsstrom baut sich zusätzlich nun ein Elektrisches Feld auf 
-welches die Ladunstrennung begrenzt. Bei zeitlich gleichbleibendem 
-$\Delta T$ stellen sich nun stationäre Verhältnisse ein. 
-Aufgrunddessen bildet sich eine Thermospannung $U_{th}$. 
-Diese kann aber nicht direkt gemessen werden, um diese zu messen 
-wird ein zweiter Leiter benötigt. Das Verhältniss der Thermospannung 
-$U_{th}$ zur Temperaturdifferenz $\Delta$T wird Seebeck Koeffizient 
-genannt und ist durch
+Der Seebeck-Effekt ist einer der drei thermoelektrischen Effekte. Er tritt innerhalb eines homogenen Leiters auf, wenn ein Temperaturgefälle $\Delta T$ existiert. Dieses Temperaturgefälle löst innerhalb des Leiters einen Diffusionsstrom aus. Durch diesen Diffusionsstrom baut sich zusätzlich ein elektrisches Feld auf, das die Ladungstrennung begrenzt. Bei zeitlich konstantem $\Delta T$ stellen sich schließlich stationäre Verhältnisse ein. Dadurch bildet sich eine Thermospannung $U_\text{th}$.
+
+Diese Thermospannung kann jedoch nicht direkt gemessen werden; hierfür wird ein zweiter Leiter benötigt. Das Verhältnis der Thermospannung $U_\text{th}$ zur Temperaturdifferenz $\Delta T$ wird als Seebeck-Koeffizient bezeichnet und ist durch
 \begin{equation}
     \centering
-\alpha = \frac{dU_{th}}{dT}
-\label{Material_unabhängiger_Seebeck_1}
+    \alpha = \frac{dU_{\text{th}}}{dT}
+    \label{Material_unabhängiger_Seebeck_1}
 \end{equation}
-gegeben. Wenn die Elektronen als homogenes Gas innerhalb des 
-Leiters angenommen werden kann 
+gegeben. Wenn die Elektronen als homogenes Gas innerhalb des Leiters angenommen werden, kann
 \begin{equation}
     \centering
-\alpha = \frac{3}{2} \frac{k_B}{e}
-\label{Material_unabhängiger_Seebeck_2}
+    \alpha = \frac{3}{2} \frac{k_\text{B}}{e}
+    \label{Material_unabhängiger_Seebeck_2}
 \end{equation}
-als Formel verwendet werden. Wobei Formel \ref{Material_unabhängiger_Seebeck_2} 
-andeutet das $\alpha$ Material unabhängig ist. Diese Material unabhängigkeit 
-wurde Experimentell wiederlegt. Der Grund für diesen Unterschied liegt 
-in den freien Elektronen, diese Verhalten sich nicht, exakt wie angenommen 
-wie ein Ideales-Gas. Um diese Ungenauigkeit nun zu korrigieren wird 
-nun ein Korrekturterm r eingeführt. Bei diesem wird in betrachtung gezogen 
-dass die freien Elektronen des Leiters selbst schon kinetische Energie 
-besitzten. Um diese kinetische Energie zu bestimmen wird das Bändermodell 
-betrachtet. Dieses besagt dass bei T = 0K nur die niedrigst möglichen 
-Energiezustände besetzt sind, dieser Zustand wird als Fermi-Energie 
-bezeichnet. Hierbei ist die Kante zwischen besetzten und unbesetzten 
-Zuständen sehr scharf. Wenn die freien Elektronen nun minimal Energie 
-besitzten, also $T \neq 0$, verschwimmt diese klare Grenze zwischen 
-besetzten und unbesetzten Energiezuständen dadurch dass sich die 
-Elektronen nun teilweise bewegen können. Die Bewegungsgrenze dieser freien Elektronen ist $k_BT$ weit, dort können besetzte und unbesetzte Zustände nebeneinander existieren. Die Gleichmäßige Verteilung der möglichen Energiezustände weicht zusätzlich auch nochmal vom angenommenen Wert ab, das liegt daran dass die Zustände nicht Gleichmäßig Verteilt sind. Die Zahl der Energiezustände steigen mit der Energie gemäß der Relation
+verwendet werden. Diese Gleichung suggeriert jedoch, dass $\alpha$ materialunabhängig sei. Experimentell wurde diese Materialunabhängigkeit widerlegt. Der Grund dafür liegt darin, dass sich die freien Elektronen nicht exakt wie ein ideales Gas verhalten.
+
+Um diese Abweichung zu korrigieren, wird ein Korrekturterm eingeführt. Dabei wird berücksichtigt, dass die freien Elektronen des Leiters bereits kinetische Energie besitzen. Zur Bestimmung dieser kinetischen Energie wird das Bändermodell betrachtet. Dieses besagt, dass bei $T = 0\,\text{K}$ nur die energetisch niedrigsten Zustände besetzt sind; der höchste besetzte Zustand wird als Fermi-Energie bezeichnet. Bei Temperaturen $T >> 0$ verschwimmt die scharfe Grenze zwischen besetzten und unbesetzten Zuständen, da sich die Elektronen nun bewegen können. Die Breite des Bereichs, in dem besetzte und unbesetzte Zustände gleichzeitig auftreten, beträgt ungefähr $k_\text{B}T$.
+
+Zusätzlich ist die Verteilung der Zustände nicht gleichmäßig. Die Zahl möglicher Energiezustände steigt gemäß
 \begin{equation}
     \centering
-    \rho \propto \sqrt{E} 
+    \rho(E) \propto \sqrt{E}
     \label{Dichte}
 \end{equation}
-mithilfe dieser Relation kann ein Flächenverhältnis von $\frac{3}{2}$ hergeleitet werden. Diese Relation wird auch in der Abbildung (einfügen) nochmal Graphisch veranschaulicht. Daraus ergibt sich nun
+mit der Energie. Mithilfe dieser Relation kann ein Flächenverhältnis von $\frac{3}{2}$ hergeleitet werden (grafische Darstellung in Abbildung …). Daraus ergibt sich schließlich der materialabhängige Seebeck-Koeffizient:
 \begin{equation}
     \centering
-    \alpha = \frac{9}{2} \cdot \frac{k_B}{e} \cdot \frac{T}{T_F}
+    \alpha = \frac{9}{2} \frac{k_\text{B}}{e} \frac{T}{T_\text{F}}
     \label{material_abhängig_seebeck}
 \end{equation}
-als Materialabhängiger Seebeck-Koeffizient. Um nun die Thermospannung die Thermospannung von zwei Leitermaterialien auszurechnen wird Forme \ref{Material_unabhängiger_Seebeck_1} nach $U_{th}$ umgestellt und Integriert. Dadurch ensteht 
+
+Um nun die Thermospannung zweier Leitermaterialien zu berechnen, wird Gleichung \ref{Material_unabhängiger_Seebeck_1} nach $U_\text{th}$ umgestellt und integriert. Daraus folgt:
 \begin{equation}
     \centering
-    U_{th} = \alpha_{AB} \cdot \left(T_2 - T_1\right)
+    U_{\text{th}} = \alpha_{\text{AB}} \left(T_2 - T_1\right)
     \label{Thermospannung}
 \end{equation}
-als Formel der Materialabhängigen Thermospannung.
+als Formel der materialabhängigen Thermospannung.
 
 \subsection{Peltier-Effekt}
-\begin{figure}[!b]
+
+\begin{figure}[H]
     \centering
-    \includegraphics{Bilder/Logo.jpg}
-    \label{Peltier_Bild}
+    \includegraphics[scale = 0.5]{Bilder/Peltier-Effet.png}
+    \caption{Darstellung des Peltier-Effekts anhand des Bändermodells \cite{W9}}
+    \label{PeltierBild}
 \end{figure}
 
-Der Peltier-Effekt ist der zweite von drei Thermoelektrischen-Effekten, bei diesem wird mithilfe eines Fließendes Stromes Wärmenergie am Übergang von zwei Leitern frei oder aufgenommen. Der Grund für diese Temperaturänderung ist die Differenz der Fermi-Energie dieser zwei Leiter. Dadurch dass der Elektronen Fluß durch di Leiter gleich ist, und die Leitungsbänder beider Materialien unterschiedliche Energie Niveaus haben, müssen diese Elektronen potentielle Energie aufnehmen oder abgeben um normal weiter fließen zu können. In Abbildung\ref{Peltier_Bild} (einfügen) wird dieses Phänomen Graphisch veranschaulicht.  
+Der Peltier-Effekt ist der zweite der drei thermoelektrischen Effekte. Bei ihm wird durch einen fließenden Strom am Übergang zweier Leiter Wärmeenergie aufgenommen oder abgegeben. Ursache dafür ist die unterschiedliche Fermi-Energie der beiden Materialien. Da der Elektronenfluss in beiden Leitern gleich sein muss, jedoch die Leitungsbänder verschiedene Energieniveaus besitzen, müssen Elektronen beim Übergang entweder potenzielle Energie aufnehmen oder abgeben, um weiterfließen zu können. In Abbildung \ref{PeltierBild} wird dieses Phänomen grafisch veranschaulicht.
 
-Die Wärmeleistung für zwei Leiter ist durch
+Für zwei Leiter ist die transportierte Wärmeleistung gegeben durch
 \begin{equation}
     \centering
-    \dot{Q_{AB}} = \frac{E_A - E_B}{e} \cdot I = \Pi_{AB} \cdot I
+    \dot{Q}_{\text{AB}} = \frac{E_\text{A} - E_\text{B}}{e} \cdot I = \Pi_{\text{AB}} \cdot I
     \label{Peltier_koeffiezient_2}
 \end{equation}
-gegeben. Der Peltier-koeffiezient eines einzelnen Leiterstückes wird durch
+Der Peltier-Koeffizient eines einzelnen Leiters lautet
 \begin{equation}
     \centering
-    \dot{Q_{A}} = \frac{E_A}{e} \cdot I = \Pi_{A} \cdot I
+    \dot{Q}_{\text{A}} = \frac{E_\text{A}}{e} \cdot I = \Pi_{\text{A}} \cdot I
     \label{Peltier_koeffiezient_1}
 \end{equation}
-gegeben. Dieser Peltier-Koeffiezient kann nun umgeformt werden
+
+Der Peltier-Koeffizient lässt sich umformen zu
 \begin{equation}
     \centering
-    \Pi_A = \frac{E_A}{e} = \frac{3}{2} \frac{k_B}{e} T = \alpha T
+    \Pi_{\text{A}} = \frac{E_\text{A}}{e} = \frac{3}{2} \frac{k_\text{B}}{e} T = \alpha T
     \label{Seebeck_x_Peltier}
 \end{equation}
-um eine Verbindung zwischen dem Peltier-Koeffiezient und dem Seebeck-Koeffiezient zu schaffen. Dieser Prozess ist aber wie jeder andere Prozess im Universum nicht zu $100\%$ effizient, deswegen wird auch hier eine Korrektur benötigt um die effektive Termperatur zu ermitteln. Die zusätzlich anfallende Wärme ist die Ohmsche-Wärme, $P=UI$ die Gleichmäßig auf der Ober- und Unterseite frei wird. Dadurch kann die effektive Formel der Kalten Seite des Peltier-Elements durch
+wodurch der Zusammenhang zwischen Seebeck- und Peltier-Koeffizient sichtbar wird.
+
+Da dieser Prozess, wie alle realen Prozesse, nicht vollständig effizient abläuft, muss die zusätzlich entstehende ohmsche Wärme berücksichtigt werden. Die ohmsche Leistung $P = UI$ verteilt sich gleichmäßig auf die Ober- und Unterseite des Elements. Für die effektive Kühlleistung der kalten Seite ergibt sich daher:
 \begin{equation}
     \centering
-    c \cdot \Delta T = \frac{1}{2} \cdot U \cdot I - \Pi_{AB} \cdot I 
+    c \cdot \Delta T = \frac{1}{2} U I - \Pi_{\text{AB}} I
     \label{effektive_Kühlung}
 \end{equation}
-gegeben werden.
-
 
 \subsection{Thomson-Effekt}
-Der Thomson-Effekt ist der dritte Thermoelektrische-Effekt. Dieser ist im Gegensatz zu den anderen beiden Effekten direkt an einem Leiter beobachtbar. Der Thomson-Effeckt funktioniert ähnlich wie der Peltier-Effekt, bei diesem wird entlang eines Stromdurchflossenen Leiters an dem ein Temperatur-Gefälle anliegt eine Wärmeleistung $\dot{Q}$ frei. Diese unterschiedlichen Fermi-Energien kommen davon dass die Fermi-Energie Temperaturabhängig ist.
+
+Der Thomson-Effekt ist der dritte thermoelektrische Effekt. Im Gegensatz zu den beiden anderen Effekten tritt er direkt entlang eines stromdurchflossenen Leiters auf, wenn ein Temperaturgefälle anliegt. Dabei wird entlang des Leiters eine Wärmeleistung $\dot{Q}$ frei. Die Ursache liegt darin, dass die Fermi-Energie temperaturabhängig ist und sich somit entlang des Temperaturgefälles ändert.
+
 
 
