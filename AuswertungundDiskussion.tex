@@ -123,7 +123,7 @@ In Tabelle \ref{tb:to} sind die daraus folgenden Temperaturdifferenzen zu sehen.
     \caption{Der Betrag der Temperaturdifferenzen aus Tabelle \ref{tb:to} der jeweiligen Stromstärken mit einer Ausgleichsgeraden. Die Ausgleichsgerade wurde mittels Numpy.polyfit erstellt. Es wurde ein Polynom 2. Grades verwendet.} 
 \end{figure}
 
-Das Maximum der Kurve befindet sich bei $I = 3{,}34$ A, wo ein Temperaturunterschied von $20{,}20$ °C herrscht. Diese Werte haben jedoch keinen großen Erkenntnisgewinn, da sie konkret von dem Aufbau des Peltier-Elements abhängig sind, z.\,B. der Isolierung, dem ohmschen Widerstand etc. Die Vermutung, dass es ein solches Maximum für die Kühlleistung gibt, hat sich aber bestätigt. Außerdem wurde ein exponentieller Zusammenhang zwischen $I$ und $\Delta T$ festgestellt. MEHR
+Das Maximum der Kurve befindet sich bei $I = 3{,}34$ A, wo ein Temperaturunterschied von $20{,}20$ °C herrscht. Diese Werte haben jedoch keinen großen Erkenntnisgewinn, da sie konkret von dem Aufbau des Peltier-Elements abhängig sind, z.\,B. der Isolierung, dem ohmschen Widerstand etc. Die Vermutung, dass es ein solches Maximum für die Kühlleistung gibt, hat sich aber bestätigt. Außerdem wurde ein exponentieller Zusammenhang zwischen $I$ und $\Delta T$ festgestellt.
 
 Nun soll der Peltier-Koeffizient $\Pi$ mit Gleichung \ref{effektive_Kühlung} berechnet werden. Formt man diese zu
 
@@ -194,7 +194,7 @@ ergibt. Der Fehler des Peltier-Koeffizienten ist durch
 \approx \pm 0{,}781\,\mathrm{V}.
 \end{equation}
 
-gegeben. Der relative Fehler von $c$, $\frac{\Delta c}{c} = 4{,}9 \%$, aber noch mehr, der relative Fehler von $\Pi$, $\frac{\Delta \Pi}{\Pi} = 7{,}4 \%$, ist signifikant. Dies kommt daher, dass mit dem Größtfehler gerechnet wurde, was bei einer Größe, die von mehreren fehlerbehafteten Größen abhängt, automatisch zu einem großen Fehler führt. Nun sollen die joulesche Wärmeleistung und die Peltier-Wärmeleistung separat voneinander betrachtet werden. Trägt man beide Leistungen gegen die Stromstärke $I$ auf, erhält man Abbildung \ref{bi:Leistungen}.
+gegeben. Der relative Fehler von $c$, $\frac{\Delta c}{c} = 4{,}9 \%$, aber noch mehr, der relative Fehler von $\Pi$, $\frac{\Delta \Pi}{\Pi} = 7{,}4 \%$, ist signifikant. Dies kommt daher, dass mit dem Größtfehler gerechnet wurde, was bei einer Größe, die von mehreren fehlerbehafteten Größen abhängt, automatisch zu einem großen Fehler führt. Anfangs kommen die Fehler von Messungenauigkeiten der Messgeräte. Nun sollen die joulesche Wärmeleistung und die Peltier-Wärmeleistung separat voneinander betrachtet werden. Trägt man beide Leistungen gegen die Stromstärke $I$ auf, erhält man Abbildung \ref{bi:Leistungen}.
 
 \begin{figure}[H]
     \centering
