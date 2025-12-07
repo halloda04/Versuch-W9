@@ -2,32 +2,32 @@
 
 \subsection{Seebeck-Koeffizient des Thermoelements}
 
-Um den Seebeck-Koeffizient des Thermoelements zu bestimmen kann die Gleichung für zwei Materialien A und B und bei einem Temperaturgefälle von $T_2 - T_1$  aus Gleichung (\ref{}) hergeleitet werden. 
+Um den Seebeck-Koeffizienten des Thermoelements zu bestimmen, kann die Gleichung für zwei Materialien A und B bei einem Temperaturgefälle von $T_2 - T_1$ aus Gleichung (\ref{Material_unabhängiger_Seebeck_1}) hergeleitet werden. 
 \begin{equation}
-  U_{th} = \int_{T_1}^{T_2} \alpha_A~ \text{d}T - \int_{T_1}^{T_2} \alpha_B~ \text{d}T = \int_{T_1}^{T_2} \alpha_{AB}~ \text{d}T
+  U_{\mathrm{th}} = \int_{T_1}^{T_2} \alpha_\mathrm{A}~ \text{d}T - \int_{T_1}^{T_2} \alpha_\mathrm{B}~ \text{d}T = \int_{T_1}^{T_2} \alpha_{\mathrm{AB}}~ \text{d}T
 \end{equation}
 Mit $\alpha_{AB} = \alpha_A - \alpha_B$ vereinfacht sich das zu
 
 \begin{equation}
 U_{th} = \alpha_{AB} \cdot (T_2 - T_1)
-\label{gl:uth}
+\label{gl:uth}  
 \end{equation}
 
-Trägt man die Temperaturdifferenz, welche in diesem Fall einfach die gemessene Temperatur in Grad Celsius ist, da die Referenz Temperatur null Grad Celsius betrug, gegen die gemessene Spannung auf, so ergibt sich Diagramm \ref{bi:Ut1}.
+Trägt man die Temperaturdifferenz, welche in diesem Fall einfach die gemessene Temperatur in Grad Celsius ist, da die Referenztemperatur 0~°C betrug, gegen die gemessene Spannung auf, so ergibt sich Diagramm \ref{bi:Ut1}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth, keepaspectratio]{Bilder/Ut1.png}
-    \caption{Die Thermopannung gemessen in mV aufgetragen gegen die Temperaturdifferenz. Die Ausgleichgerade wurde mittels Numpy.polyfit ersten Grades erstellt. Die Grenzgeraden wurde Mittels einer Funktion welche die Grenzeraden so legt, dass $\frac{2}{3}$ aller Punkte zwischen den beiden Grenzgeraden liegen, erstellt. Alle drei Geraden laufen durch den Schwerpunkt.}
+    \includegraphics[width=\linewidth, keepaspectratio]{Bilder/tiu.png}
+    \caption{Die Thermospannung, gemessen in mV, aufgetragen gegen die Temperaturdifferenz. Die Ausgleichsgerade wurde mittels Numpy.polyfit ersten Grades erstellt. Die Grenzgeraden wurden mittels einer Funktion erzeugt, welche die Grenzgeraden so legt, dass $\frac{2}{3}$ aller Punkte zwischen den beiden Grenzgeraden liegen. Alle drei Geraden laufen durch den Schwerpunkt.}
      \label{bi:Ut1}
 \end{figure}
 
-Mit der Steigung der Ausgleichsgerade aus Tabelle \ref{tb:steig1} ergibt sich für das gegebene Thermoelement  ein Seebeck-Koeffizient von 
+Mit der Steigung der Ausgleichsgeraden aus Tabelle \ref{tb:steig1} ergibt sich für das gegebene Thermoelement ein Seebeck-Koeffizient von 
 \begin{equation}
   \alpha_{\mathrm{AB}} = 4,49 \cdot 10^{-5} \frac{\mathrm{V}}{\mathrm{K}}
 \end{equation}
 
-Der Fehler des Seebeck-Koeffizient ergibt sich aus den Steigungen der Grenzgeraden welche in Tabelle \ref{tb:steig1} abgebildet sind.
+Der Fehler des Seebeck-Koeffizienten ergibt sich aus den Steigungen der Grenzgeraden, welche in Tabelle \ref{tb:steig1} abgebildet sind.
 
 \begin{table}[H]
     \centering
@@ -44,66 +44,60 @@ Der Fehler des Seebeck-Koeffizient ergibt sich aus den Steigungen der Grenzgerad
     \label{tb:steig1}
 \end{table}
 
-Verwendet man diese Werte ergibt sich folgender Fehler.
+Verwendet man diese Werte, ergibt sich folgender Fehler:
 
 \begin{equation}
   \Delta \alpha_{\mathrm{AB}} = \frac{0,0472 \frac{\mathrm{mV}}{\mathrm{K}} - 0,0426 \frac{\mathrm{mV}}{\mathrm{K}}}{2} = 0,0023 \frac{\mathrm{mV}}{\mathrm{K}} 
   \label{seefehler}
 \end{equation}
 
-Dass Ergebniss ist dann folgendes.
+Das Ergebnis ist dann folgendes:
 
 \begin{equation}
   \alpha_{\mathrm{AB}} = (4,49 \pm 0,23) \cdot 10^{-5} \frac{\mathrm{V}}{\mathrm{K}}
 \end{equation}
 
-Der relativer Fehler $\frac{\Delta \alpha}{\alpha}$ beträgt ca. 5\%. Dieser Fehler scheint realistisch, da das Spannungsmessgerät als auch das Temperaturmessgerät Messungenaugkeiten haben. Des weiteren wurde beim erhitzen des Wassers nicht umgerührt, was dazuführen kann das bei den Kontaktpunkten des Thermoelements eine andere Temperatur als bei dem Thermometers herscht, was zu einer Verfälschung des Ergebnisses führen könnte. Dieser Fehler ist dann aber höchstwahrscheinlich konstant, also nicht in $\Delta \alpha$ erkennbar, da sich das Wasser trotzdem konstant erwärmt. Es wär somit ein Systematischer Fehler. Zudem ist vermerkt das der Thermometer während der Messung verrutscht ist. Da dies aber, zumindest nicht deutlich, in Abbildung \ref{bi:Ut1} zu erkennen ist, ist davon auszugehen das der Gerade beschriebene Effekt nicht gravierend ist.
+Der relative Fehler $\frac{\Delta \alpha}{\alpha}$ beträgt ca. 5~\%. Dieser Fehler scheint realistisch, da sowohl das Spannungsmessgerät als auch das Temperaturmessgerät Messungenauigkeiten aufweisen. Des Weiteren wurde beim Erhitzen des Wassers nicht umgerührt, was dazu führen kann, dass an den Kontaktpunkten des Thermoelements eine andere Temperatur herrscht als am Thermometer, was das Ergebnis verfälschen könnte. Dieser Fehler ist jedoch höchstwahrscheinlich konstant und somit nicht in $\Delta \alpha$ erkennbar, da sich das Wasser trotzdem konstant erwärmt. Es wäre somit ein systematischer Fehler. Zudem ist vermerkt, dass der Thermometer während der Messung verrutscht ist. Da dies jedoch – zumindest nicht deutlich – in Abbildung \ref{bi:Ut1} zu erkennen ist, ist davon auszugehen, dass der beschriebene Effekt nicht gravierend ist.
 
+Wie vermutet, ist ein linearer Zusammenhang zwischen der Temperaturdifferenz und der Spannung, wie von Gleichung \ref{gl:uth} vorhergesagt, in Abbildung \ref{bi:Ut1} zu sehen.
 
+\subsection{Peltier-Element}
 
-Wie vermutet ist ein linearer Zusammenhang zwischen der Temperaturdifferenz und der Spannung, wie von Gleichung \ref{gl:uth} vorhergesagt, in Abbildung \ref{bi:Ut1} zu sehen.
-% Vergleicht man diesen Wert mit dem theoretischen wert von Gleichung \ref{} ergibt sich folgender Seebeck-Koeffizient. 
-
-% \begin{equation}
-% \alpha = \frac{3k_\mathrm{B}}{2e} = 12,9 \cdot 10^{-5} \frac{\mathrm{V}}{\mathrm{K}
-% \end{equation}
-
-\subsection{Peltier Element}
-Stellt man den Zeitlichen Verlauf der Thermospannung $U_{\mathrm{th}}(t)$ für die verschiedenen Stromstärken grafisch da, so erhält man Abbildung \ref{bi:Utversc}
-
+Stellt man den zeitlichen Verlauf der Thermospannung $U_{\mathrm{th}}(t)$ für die verschiedenen Stromstärken grafisch dar, so erhält man Abbildung \ref{bi:Utversc}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth, keepaspectratio]{Bilder/utverschiedenespannugen.png}
     
-    \caption{Die Spannung gemessen in mV aufgetragen gegen vergangene Zeit t in s nach dem Einschalten der Stromquelle bzw. nach dem ändern der Stromstärke.}
+    \caption{Die Spannung, gemessen in mV, aufgetragen gegen die vergangene Zeit $t$ in s nach dem Einschalten der Stromquelle bzw. nach dem Ändern der Stromstärke.}
     \label{bi:Utversc}
 \end{figure}
 
-Der Sprung der Kurve von $I = 2,4 $ A bei ca $t = 80$s  lässt sich durch das Spannungsmessgerät erklären. Da dieses keine Spannungen unter $\left|0,5\right|$ mV Messen kann, zeigt dieses bis zum Erreichen von $U_{\mathrm{th}} = -0,5$mV eine Spannung von  $U_{\mathrm{th}} = 0$mV  an und springt dann plötzlich auf von $U_{\mathrm{th}} = -0,5$ mV. Die beste Effektivkühlung der gemessenen Werte, erhält man bei einer Stromstärke von $I = 3,2 $ A. Dies liegt daran das bei einer größeren Stromstärke die Erwärmung durch den ohmschen Wiederstand stärker wächst als die Abkühlung durch das Peltier-Element. 
+Der Sprung der Kurve von $I = 2{,}4\ \mathrm{A}$ bei ca.\ $t = 80\ \mathrm{s}$ lässt sich durch das Spannungsmessgerät erklären. Da dieses keine Spannungen unter $\lvert 0{,}5 \rvert\ \mathrm{mV}$ messen kann, zeigt es bis zum Erreichen von $U_{\mathrm{th}} = -0{,}5\ \mathrm{mV}$ eine Spannung von $U_{\mathrm{th}} = 0\ \mathrm{mV}$ an und springt dann plötzlich auf $U_{\mathrm{th}} = -0{,}5\ \mathrm{mV}$. Die beste Effektivkühlung der gemessenen Werte erhält man bei einer Stromstärke von $I = 3{,}2\ \mathrm{A}$. Dies liegt daran, dass bei einer größeren Stromstärke die Erwärmung durch den ohmschen Widerstand stärker wächst als die Abkühlung durch das Peltier-Element. 
 
-Da das selbe Thermoelement wie bei der ersten Messung verwendet wurde und die Referenzthemperatur ebenfalls 0°C ist, kann $T_{\mathrm{O}}$ also die Temperatur am Oberseite des Peltier Element mit der gemessenen Thermopannung $U_{\mathrm{th}}$ errechnet Werden. Die Formel dafür
+Da dasselbe Thermoelement wie bei der ersten Messung verwendet wurde und die Referenztemperatur ebenfalls 0~°C ist, kann $T_{\mathrm{O}}$, also die Temperatur an der Oberseite des Peltier-Elements, mit der gemessenen Thermospannung $U_{\mathrm{th}}$ errechnet werden. Die Formel dafür lautet
 
 \begin{equation}
 T_{\mathrm{O}} = \frac{U_{\mathrm{th}}}{\alpha_{\mathrm{AB}}}
 \end{equation}
 
-folgt aus Gleichung \ref{Thermospannung} Der Größtfehler errechnet sich mit
+und folgt aus Gleichung \ref{Thermospannung}. Der Größtfehler errechnet sich mit
 \begin{equation}
-\label{eq:Groesztfehler}
 \Delta T_{\mathrm{O}} = 
 \pm \left(
-\left| \frac{\partial T_O}{\partial U_{\mathrm{th}}} \right| \, \Delta U_{\mathrm{th}} 
-+ \left| \frac{\partial T_O}{\partial \alpha_{AB}} \right| \, \Delta \alpha_{AB} 
+\left| \frac{\partial T_{\mathrm{O}}}{\partial U_{\mathrm{th}}} \right| \Delta U_{\mathrm{th}} 
++ \left| \frac{\partial T_{\mathrm{O}}}{\partial \alpha_{\mathrm{AB}}} \right| \Delta \alpha_{\mathrm{AB}} 
 \right)
 = \pm \left(
-\frac{\Delta U_{\mathrm{th}}}{\alpha_{AB}} + \frac{U_{\mathrm{th}} \, \Delta \alpha_{AB}}{\alpha_{AB}^2} 
-\right) .
+\frac{\Delta U_{\mathrm{th}}}{\alpha_{\mathrm{AB}}} + \frac{U_{\mathrm{th}} \, \Delta \alpha_{\mathrm{AB}}}{\alpha_{\mathrm{AB}}^2} 
+\right).
+\label{fehleroben}
 \end{equation}
 
-Dabei FHELR
 
-In Tablle \ref{tb:to} sind die daraus folgenden Temperaturdifferenzen zu sehen. 
+Dabei wurde für den fehler von Der Spannung ein Wert von $,\pm 0,005$ mV notiert. Der Fehler des Seebeck-Koeffizienten ist durch Gleichung \ref{seefehler} gegeben.
+
+In Tabelle \ref{tb:to} sind die daraus folgenden Temperaturdifferenzen zu sehen. 
 
 \begin{table}[H]
     \centering
@@ -111,86 +105,84 @@ In Tablle \ref{tb:to} sind die daraus folgenden Temperaturdifferenzen zu sehen.
         \hline
         $ I $(A) &  $T_{\mathrm{O}}$ (°C) & $\Delta T_{\mathrm{O,U}}$ (K)\\
         \hline
-        0,8  & 7,13 & -8,97 \\
-        1,6  & 1,11 FEHLER & -15,09 \\
-        2,4  & -2,45 &  -18,65\\
-        3,2  & -3,79 & -19,99 \\
-        4,0  & -3,34 & -19,54 \\
+        0,8  & 7,13 $\pm 0,47$ & -8,97 $\pm 0,57$\\
+        1,6  & 1,11 $\pm 0,17$ & -15,09 $\pm 0,27$\\
+        2,4  & -2,45 $\pm 0,24$ & -18,65 $\pm 0,34$\\
+        3,2  & -3,79 $\pm 0,30$ &  -19,99 $\pm 0,40$ \\
+        4,0  & -3,34 $\pm 0,28$& -19,54 $\pm 0,38$\\
         
     \end{tabular}
-    \caption{Die Temperatur oben am Petierelement und der Bertrag der Differenz Unten-Oben für die verschiedenen Stromstärken}
+    \caption{Die Temperatur oben am Peltier-Element und der Betrag der Differenz Unten-Oben für die verschiedenen Stromstärken}
     \label{tb:to}
 \end{table}
-
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth, keepaspectratio]{Bilder/deltatgegenI.png}
     \label{bi:DeltatgegenI}
-    \caption{Der Betrag der Temperaturdifferenzen aus Tabelle \ref{tb:to} der jeweiligen Stromstärken. Mit einer Ausgleichsgerade. Die Ausgleichsgerade wurde mittels Numpy.polyfit erstellt. Es wurde ein Polynom 2ten Grades verwendet. } 
+    \caption{Der Betrag der Temperaturdifferenzen aus Tabelle \ref{tb:to} der jeweiligen Stromstärken mit einer Ausgleichsgeraden. Die Ausgleichsgerade wurde mittels Numpy.polyfit erstellt. Es wurde ein Polynom 2. Grades verwendet.} 
 \end{figure}
 
-Das Maximum der Kurve befindet sich bei $I = 3.34$ A. wo  ein Temperaturunterschied von $20.20$ °C herscht. Diese Werte haben aber keinen großen Erkenntnissgewinn da sie ganz Konkret von dem Aufbau des Petier-Elements abhäging sind, z.B der Isolierung, dem Ohmschen Wiederstand etc. Die Vermutug das es ein Solches Maximum für die Kühlleistung gibt hat sich aber bestätigt. Ausserdem ist ein Exponentieller Zusammenhang zwischen $I$ und $\Delta T$ festgestellt. MEHR
+Das Maximum der Kurve befindet sich bei $I = 3{,}34$ A, wo ein Temperaturunterschied von $20{,}20$ °C herrscht. Diese Werte haben jedoch keinen großen Erkenntnisgewinn, da sie konkret von dem Aufbau des Peltier-Elements abhängig sind, z.\,B. der Isolierung, dem ohmschen Widerstand etc. Die Vermutung, dass es ein solches Maximum für die Kühlleistung gibt, hat sich aber bestätigt. Außerdem wurde ein exponentieller Zusammenhang zwischen $I$ und $\Delta T$ festgestellt. MEHR
 
-Nun Soll der Peltier-Koeffizient $\Pi$ mit Gleichung \ref{effektive_Kühlung} berechnet werden. Formt man diese zu 
+Nun soll der Peltier-Koeffizient $\Pi$ mit Gleichung \ref{effektive_Kühlung} berechnet werden. Formt man diese zu
 
 \begin{equation}
 \frac{\Delta T_{\mathrm{O,U}}}{I} = \frac{1}{2c} \cdot U - \frac{\Pi}{c}
 \label{gl:toui}
 \end{equation}
 
-um, so kann man c mit Hilfe der Steigung der Ausgleichsgerade in Abbildung \ref{} errechen. 
+um, so kann man $c$ mit Hilfe der Steigung der Ausgleichsgeraden in Abbildung \ref{bi:tiu} errechnen. 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth, keepaspectratio]{Bilder/tiu.png}
-    
-    \caption{Die Temperaturdifferenzen aus Tabelle \ref{tb:to} geteilt durch die jeweiligen Stromstärken aufgetragen gegen die Spannungen.  Mit Ausgleichs- und Grenzgeraden. Die Ausgleichsgerade wurde mittels Numpy.polyfit erstellt. Es wurde ein Polynom 1ten Grades verwendet. ie Grenzgeraden Mittels einer Funktion welche die Grenzeraden so legt, dass $\frac{2}{3}$ aller Punkte zwischen den beiden Grenzgeraden liegen. Alle drei Geraden laufen durch den Schwerpunkt.} 
+    \includegraphics[width=\linewidth, keepaspectratio]{Bilder/tiu2.png}
+    \caption{Die Temperaturdifferenzen aus Tabelle \ref{tb:to} geteilt durch die jeweiligen Stromstärken, aufgetragen gegen die Spannungen. Mit Ausgleichs- und Grenzgeraden. Die Ausgleichsgerade wurde mittels Numpy.polyfit erstellt. Es wurde ein Polynom 1. Grades verwendet. Die Grenzgeraden wurden mittels einer Funktion erstellt, welche die Grenzgeraden so legt, dass $\frac{2}{3}$ aller Punkte zwischen den beiden Grenzgeraden liegen. Alle drei Geraden laufen durch den Schwerpunkt.} 
     \label{bi:tiu}
 \end{figure}
 
-Die Steigungen $m$ und die y-Achsenabschnitte $t$ von den Graphen in Abbildung \ref{bi:tiu} sind folgender Tabelle \ref{tb:steig2} zu sehen.
+Die Steigungen $m$ und die y-Achsenabschnitte $t$ der Graphen in Abbildung \ref{bi:tiu} sind in Tabelle \ref{tb:steig2} zu sehen.
 
 \begin{table}[H]
     \centering
     \begin{tabular}{c  c c}
         \hline
-        Gerade &  Steigung ($m \frac{\mathrm{K}}{\mathrm{W}}$) & y-Achsenabschnitt $t $ $(\frac{\mathrm{K}}{\mathrm{A}})$\\
+        Gerade & Steigung ($m \frac{\mathrm{K}}{\mathrm{W}}$) & y-Achsenabschnitt $t$ $(\frac{\mathrm{K}}{\mathrm{A}})$\\
         \hline
         Ausgleichsgerade   & 0,597 & -12,782   \\
-        Grenzgerade 1   & 0,545 & -12,350   \\
-        Grenzgerade 2 & 0,655 & -13,256   \\
-    
+        Grenzgerade 1      & 0,545 & -12,350   \\
+        Grenzgerade 2      & 0,655 & -13,256   \\
     \end{tabular}
     \caption{Die Steigungen der Ausgleichs- und Grenzgeraden}
     \label{tb:steig2}
 \end{table}
 
-
-Aus Gleichung \ref{gl:toui} folgt
+Aus Gleichung \ref{gl:toui} folgt:
 \begin{equation}
-m = \frac{1}{2c} \Leftrightarrow c = \frac{1}{2m} = 0,83 \frac{\mathrm{W}}{\mathrm{K}}
+m = \frac{1}{2c} \Leftrightarrow c = \frac{1}{2m} = 0{,}83 \frac{\mathrm{W}}{\mathrm{K}}
 \end{equation}
 
-für die Proportionalitätskonstante $c$ und dann für den Peltier-Koeffizient
+für die Proportionalitätskonstante $c$ und anschließend für den Peltier-Koeffizienten:
 \begin{equation}
-t = - \frac{\Pi}{c} \Leftrightarrow \Pi = -t \cdot  c = 10,615 V
+t = - \frac{\Pi}{c} \Leftrightarrow \Pi = -t \cdot c = 10{,}615\,\mathrm{V}
 \end{equation}
 
-Dabei Werden die Fehler der Steigung und des y-Achsenabschnitts wie bei dem Fehler des Seebeck-Koeffizient Gleichung (\ref{seefehler}) bestimmt. Mit Werten aus Tablle \ref{tb:steig2} ergibt sich
+Dabei werden die Fehler der Steigung und des y-Achsenabschnitts wie beim Fehler des Seebeck-Koeffizienten in Gleichung (\ref{seefehler}) bestimmt. Mit den Werten aus Tabelle \ref{tb:steig2} ergibt sich:
 
 \begin{equation}
-\Delta m = 0,055~,~\Delta t = 0,453
+\Delta m = 0{,}055~,~\Delta t = 0{,}453
 \end{equation}
 
-Womit sich dann für die abgeleitete Größe c ein Fehler von 
+Womit sich für die abgeleitete Größe $c$ ein Fehler von
 
 \begin{equation}
 \Delta c = \pm \left( \left| \frac{\partial c}{\partial m} \right| \Delta m \right)
            = \pm \frac{\Delta m}{2 m^{2}}
            \approx \pm 0{,}040\,\frac{\mathrm{W}}{\mathrm{K}} \, .
 \end{equation}
+
 ergibt. Der Fehler des Peltier-Koeffizienten ist durch
+
 \begin{equation}
 \Delta \Pi
 = \pm \left( 
@@ -202,71 +194,71 @@ ergibt. Der Fehler des Peltier-Koeffizienten ist durch
 \approx \pm 0{,}781\,\mathrm{V}.
 \end{equation}
 
-gegeben. Während der relativ Fehler von c, $\frac{\Delta c}{c} = 4,9 \%$ noch relativ gering ist, Ist der relativ Fehler von $\Pi$, $\frac{\Delta \Pi}{\Pi} = 7,4$ schon signifikant. Dies kommt einerseits davon, dass mit dem Größtfehler gerrechnet wurde, was bei einer Größe die von meherern fehlerbehafteten Größen abhängt automatisch zu einem großen Fehler führt. Nun soll die joulsche-Wärmeleistung und die joulsche-Wärmeleistung seperat voneinander betrachtet werden. Trägt man beide Leistungen gegen die Stromstärke $I$ auf so erhält man Abbildung \ref{bi:Leistungen}.
+gegeben. Der relative Fehler von $c$, $\frac{\Delta c}{c} = 4{,}9 \%$, aber noch mehr, der relative Fehler von $\Pi$, $\frac{\Delta \Pi}{\Pi} = 7{,}4 \%$, ist signifikant. Dies kommt daher, dass mit dem Größtfehler gerechnet wurde, was bei einer Größe, die von mehreren fehlerbehafteten Größen abhängt, automatisch zu einem großen Fehler führt. Nun sollen die joulesche Wärmeleistung und die Peltier-Wärmeleistung separat voneinander betrachtet werden. Trägt man beide Leistungen gegen die Stromstärke $I$ auf, erhält man Abbildung \ref{bi:Leistungen}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth, keepaspectratio]{Bilder/Leistungen.png}
+    \caption{Die Peltier-Wärmeleistung in Rot und die joulesche Wärmeleistung in Schwarz, aufgetragen gegen die Stromstärke. Die Ausgleichsgerade der jouleschen Wärmeleistung wurde mittels Numpy.polyfit erstellt. Es wurde ein Polynom 2. Grades verwendet.} 
     \label{bi:Leistungen}
-    \caption{Die Peltier-Wärmeleistung in Rot und die joulsche-Wärmeleistung in Schwarz aufgetragen gegen die Stromstärke.  Die Ausgleichsgerade der joulsche-Wärmeleistung wurde mittels Numpy.polyfit erstellt. Es wurde ein Polynom 2ten Grades verwendet. } 
 \end{figure}
 
-Wie Vermutet ist die joulsche-Wärmeleistung exponentiell von der Stromstärke abhängig. Das lässt sich erklären in dem man das Peltier-Element als ohmeschen Wiederstand annimmt und somit für die Wärmeleistung 
+Wie vermutet, ist die joulesche Wärmeleistung exponentiell von der Stromstärke abhängig. Das lässt sich erklären, indem man das Peltier-Element als ohmschen Widerstand annimmt und somit für die Wärmeleistung
 
 \begin{equation}
 P = R \cdot I^2
 \end{equation}
 
-folgt. Die Peltier-Wärmeleistung verläuft linear, ... Des Weitern kann die Vermutung die aus Abbildung \ref{bi:Utversc} aufgestellt wurde, dass bei der Stromstärke von $I = 4$A die joulsche-Wärmeleistung stärker als die Peltier-Wärmeleistung steigt hat sich bestätigt. Während die Steigung der Peltier-Wärmeleistung konstant $\Pi = 10,615 \frac{\mathrm{W}}{\mathrm{A}} $ beträgt, hat die joulsche-Wärmeleistung am Punkt $I = 4$A eine Steigung von $27.74 \frac{\mathrm{W}}{\mathrm{A}}$ 
+folgt. Die Peltier-Wärmeleistung verläuft linear, ... Des Weiteren hat sich die Vermutung aus Abbildung \ref{bi:Utversc} bestätigt, dass bei einer Stromstärke von $I = 4$ A die joulesche Wärmeleistung stärker steigt als die Peltier-Wärmeleistung. Während die Steigung der Peltier-Wärmeleistung konstant $\Pi = 10{,}615 \frac{\mathrm{W}}{\mathrm{A}}$ beträgt, hat die joulesche Wärmeleistung am Punkt $I = 4$ A eine Steigung von $27{,}74 \frac{\mathrm{W}}{\mathrm{A}}$.
 
-\subsection{Seebeck-Koeffizient des Peltier Elements}
+\subsection{Seebeck-Koeffizient des Peltier-Elements}
 
-Nun soll der Seebeck-Koeffizient de Peltier Elements bestimmt werde. Hierführ muss zuerst der Temperatur Unterschied zwischen der Ober- und Unterseite des Peltier errechnet werden. Dies kann mit Gleichung (\ref{gl:uth}) mit den Gemmessenen Thermospannungen $U_{\mathrm{th}}$ und dem Seebeck-Koeffizient welcher in Kapitel 4.1 Berechnet wurde, getan werden. In Tabelle sind die daraus folgenden Temperaturdifferenzen aufgetragen, wobei die Temperatur an der unterseite des Peltier-Elements in einem Bereich von 16,7°C und 15,0°C war.
+Nun soll der Seebeck-Koeffizient des Peltier-Elements bestimmt werden. Hierfür muss zuerst der Temperaturunterschied zwischen der Ober- und Unterseite des Peltier-Elements errechnet werden. Dies kann mit Gleichung (\ref{gl:uth}) mit den gemessenen Thermospannungen $U_{\mathrm{th}}$ und dem Seebeck-Koeffizienten, welcher in Kapitel 4.1 berechnet wurde, getan werden. In der Tabelle sind die daraus folgenden Temperaturen Oben sowie Temperaturdifferenzen aufgetragen, wobei die Temperatur an der Unterseite des Peltier-Elements in einem Bereich von 16{,}7 °C bis 15{,}0 °C lag.
 
 \begin{table}[H]
     \centering
     \begin{tabular}{c | c | c}
         \hline
-        $U_{\mathrm{th}}$ (V) & $T_{\mathrm{O}}$ (°C) & $\Delta T_{\mathrm{O,U}}$ (K) \\
+        $U_{\mathrm{th}}$ (mV) & $T_{\mathrm{O}}$ (°C) & $\Delta T_{\mathrm{O,U}}$ (K) \\
         \hline
-        -0.17 & -3.79 & 20.49 \\
-        -0.17 & -3.79 & 20.09 \\
-        -0.12 & -2.67 & 17.67 \\
-        -0.08 & -1.78 & 16.78 \\
-         0.00 &  0.00 & 15.10 \\
-         0.05 &  1.11 & 14.19 \\
-         0.10 &  2.23 & 13.17 \\
-         0.15 &  3.34 & 12.06 \\
-         0.20 &  4.45 & 11.05 \\
-         0.25 &  5.57 & 10.03 \\
-         0.30 &  6.68 &  8.92 \\
-         0.35 &  7.80 &  7.90 \\
-         0.40 &  8.91 &  6.79 \\
-         0.45 & 10.02 &  5.78 \\
-         0.50 & 11.14 &  4.66 \\
-         0.55 & 12.25 &  3.55 \\
-         0.59 & 13.14 &  2.66 \\
-         0.61 & 13.59 &  2.31 \\
-         0.65 & 14.48 &  1.42 \\
-         0.70 & 15.59 &  0.31 \\
-         0.75 & 16.70 & -0.80 \\
-         0.78 & 17.37 & -1.37 \\
+        -0,17 $\pm 0,005$ & -3,79 $\pm 0,305$ & 20,09 $\pm 0,405$ \\
+        -0,12 $\pm 0,005$ & -2,67 $\pm 0,248$ & 17,67 $\pm 0,348$ \\
+        -0,08 $\pm 0,005$ & -1,78 $\pm 0,202$ & 16,78 $\pm 0,302$ \\
+         0,00 $\pm 0,005$ &  0,00 $\pm 0,111$ & 15,10 $\pm 0,211$ \\
+         0,05 $\pm 0,005$ &  1,11 $\pm 0,168$ & 14,19 $\pm 0,268$ \\
+         0,10 $\pm 0,005$ &  2,23 $\pm 0,225$ & 13,17 $\pm 0,325$ \\
+         0,15 $\pm 0,005$ &  3,34 $\pm 0,282$ & 12,06 $\pm 0,382$ \\
+         0,20 $\pm 0,005$ &  4,45 $\pm 0,339$ & 11,05 $\pm 0,439$ \\
+         0,25 $\pm 0,005$ &  5,57 $\pm 0,396$ & 10,03 $\pm 0,496$ \\
+         0,30 $\pm 0,005$ &  6,68 $\pm 0,453$ &  8,92 $\pm 0,553$ \\
+         0,35 $\pm 0,005$ &  7,80 $\pm 0,510$ &  7,90 $\pm 0,610$ \\
+         0,40 $\pm 0,005$ &  8,91 $\pm 0,567$ &  6,79 $\pm 0,667$ \\
+         0,45 $\pm 0,005$ & 10,02 $\pm 0,625$ &  5,78 $\pm 0,725$ \\
+         0,50 $\pm 0,005$ & 11,14 $\pm 0,682$ &  4,66 $\pm 0,782$ \\
+         0,55 $\pm 0,005$ & 12,25 $\pm 0,739$ &  3,55 $\pm 0,839$ \\
+         0,59 $\pm 0,005$ & 13,14 $\pm 0,784$ &  2,66 $\pm 0,884$ \\
+         0,61 $\pm 0,005$ & 13,59 $\pm 0,807$ &  2,31 $\pm 0,907$ \\
+         0,65 $\pm 0,005$ & 14,48 $\pm 0,853$ &  1,42 $\pm 0,953$ \\
+         0,70 $\pm 0,005$ & 15,59 $\pm 0,910$ &  0,31 $\pm 1,010$ \\
+         0,75 $\pm 0,005$ & 16,70 $\pm 0,967$ & -0,80 $\pm 1,067$ \\
+         0,78 $\pm 0,005$ & 17,37 $\pm 1,001$ & -1,37 $\pm 1,101$ \\
         \hline
     \end{tabular}
-    \caption{Die Temperatur oben am Peltier-Element und der Betrag der Differenz Unten-Oben für die verschiedenen Stromstärken}
+    \caption{Die Temperatur oben am Peltier-Element und der Betrag der Differenz Unten–Oben für die verschiedenen Stromstärken}
     \label{tb:to3}
 \end{table}
- 
 
-Nun kann man den Peltier-Koeffiezient wie in Kapitel 4.1 bestimmen. Dafür wurde die Thermospannung $U_{\mathrm{Pe}}$ gegen die Temperaturdifferenz $T_{\mathrm{O,U}} - T_{\mathrm{ref}} = T_{\mathrm{O,U}}$, da $ T_{\mathrm{ref}} = 0°C $ist, aufgetragen. Zudem wurden die Ersten zwei Wertepaare nicht mit einbezogen, weil $U_{\mathrm{Pe}}$ bei diesen werten $> 5V$ ist und Somit nicht von dem Seebeck Effekt, sondern noch von der Angelegten Spannung stammt.  Das Ergebniss ist in Abbildung (\ref{letzepls}) zu sehen.
+
+
+Wobei Fehler für $T_{\mathrm{O,U}}$ durch die Summe aus dem Fehler $T_{\mathrm{O}}$ und $T_{\mathrm{U}}$ gegeben ist. Für den Fehler von $T_{\mathrm{O,U}}$ wurde Gleichung \ref{fehleroben} verwendet.  Nun kann man den Peltier-Koeffizienten wie in Kapitel 4.1 bestimmen. Dafür wurde die Thermospannung $U_{\mathrm{Pe}}$ gegen die Temperaturdifferenz $T_{\mathrm{O,U}} - T_{\mathrm{ref}} = T_{\mathrm{O,U}}$, da $T_{\mathrm{ref}} = 0$ °C ist, aufgetragen. Zudem wurden die ersten zwei Wertepaare nicht einbezogen, weil $U_{\mathrm{Pe}}$ bei diesen Werten $> 5\,\mathrm{V}$ anliegtDie zentrale Erkenntnis des Versuchs, die Abhängigkeit des Siedepunkts von Wasser vom
+Umgebungsdruck sowie von der Temperatur, konnte bestätigt werden. und somit nicht vom Seebeck-Effekt, sondern noch von der angelegten Spannung stammt. Das Ergebnis ist in Abbildung (\ref{letzepls}) zu sehen.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth, keepaspectratio]{Bilder/Figure_5.png}
-    \caption{Die Peltier-Wärmeleistung in Rot und die joulsche-Wärmeleistung in Schwarz aufgetragen gegen die Stromstärke.  Die Ausgleichsgerade der joulsche-Wärmeleistung wurde mittels Numpy.polyfit erstellt. Es wurde ein Polynom 2ten Grades verwendet. } 
+    \caption{Die Thermospannung, gemessen in mV, aufgetragen gegen die Temperaturdifferenz. Die Ausgleichsgerade wurde mittels Numpy.polyfit ersten Grades erstellt. Die Grenzgeraden wurden mittels einer Funktion erzeugt, welche die Grenzgeraden so legt, dass $\frac{2}{3}$ aller Punkte zwischen den beiden Grenzgeraden liegen. Alle drei Geraden laufen durch den Schwerpunkt.} 
     \label{letzepls}
 \end{figure}
-
 
 Die Steigungen sind in Tabelle \ref{tb:steig3} zu sehen.
 
@@ -274,36 +266,41 @@ Die Steigungen sind in Tabelle \ref{tb:steig3} zu sehen.
     \centering
     \begin{tabular}{c c}
         \hline
-        Gerade &  Steigung ($\frac{\mathrm{mV}}{\mathrm{K}}$)\\
+        Gerade & Steigung ($\frac{\mathrm{mV}}{\mathrm{K}}$)\\
         \hline
-        Ausgleichsgerade   & 0,0549   \\
-        Grenzgerade 1   & 0.0424   \\
-        Grenzgerade 2 & 0.0712   \\
-    
+        Ausgleichsgerade & 0{,}0549 \\
+        Grenzgerade 1    & 0{,}0424 \\
+        Grenzgerade 2    & 0{,}0712 \\
+        \hline
     \end{tabular}
     \caption{Die Steigungen der Ausgleichs- und Grenzgeraden}
     \label{tb:steig3}
 \end{table}
 
-Damit lässt sich Der Seebeck-Koeffizent nach Gleichung \ref{gl:uth}bestimmen. Der Fehler ist durch \ref{} gegeben. 
+Damit lässt sich der Seebeck-Koeffizient nach Gleichung \ref{gl:uth} bestimmen. Der Fehler ist durch \ref{seefehler} gegeben. 
+
 \begin{equation}
-\alpha_{\mathrm{P}} = (5,49 \pm 1,44) \cdot 10^{-2}\frac{\mathrm{V}}{\mathrm{K}}
+\alpha_{\mathrm{P}} = (5{,}49 \pm 1{,}44) \cdot 10^{-2}\frac{\mathrm{V}}{\mathrm{K}}
 \end{equation}
 
-FEHLER
+Dieses Ergebnis kann nun mit dem Seebeck-Koeffizienten verglichen werden, der sich ergibt, wenn man Gleichung \ref{Seebeck_x_Peltier} verwendet. Für die Temperatur wurde der Mittelwert des betrachteten Temperaturbereichs verwendet:
 
-Dieses Egebniss kann nun mit dem Seebeck-Koeffizent verglichen werden, der sich ergibt wenn man Gleichung \ref{} verwendet. Für die Temperatur wurde der Mittelwert des betrachteten Temperaturbereichs verwendet:
 \begin{equation}
-\alpha_{P,2} = \frac{\Pi}{T} = 3,73 \cdot 10^{-2} \frac{\mathrm{V}}{\mathrm{K}}
+\alpha_{P,2} = \frac{\Pi}{T} = 3{,}73 \cdot 10^{-2} \frac{\mathrm{V}}{\mathrm{K}}
 \end{equation} 
 
 Wobei der Fehler durch
+
 \begin{equation}
-\Delta\alpha_{\text{P},2} = \pm \left( \left| \frac{\partial\alpha_{\text{P},2}}{\partial\Pi} \right| \Delta\Pi \right) = \pm \frac{\Delta\Pi}{T} \approx \pm 0{,}27 \cdot 10^{-2} \frac{\text{V}}{\text{K}}
+\Delta\alpha_{\text{P},2} = \pm \left( \left| \frac{\partial\alpha_{\text{P},2}}{\partial\Pi} \right| \Delta\Pi \right) 
+= \pm \frac{\Delta\Pi}{T} 
+\approx \pm 0{,}27 \cdot 10^{-2} \frac{\text{V}}{\text{K}}
 \end{equation}
-gegeben ist. Somit überschneiden sich diese zwei Ergebnisse auch mit dem Maximalfehler um $0,05 \cdot 10^{-2} \frac{\text{V}}{\text{K}}$ nicht. Zudem ist der Fehler des Seebeck-Koeffizent welcher mithilfe der Grafik erstellt wurde sehr größ, der relativ Fehler beträgt ca. 26\%. Der Verlauf der Punkte in Grafik \ref{tb:steig3} lässt auch eine Exponentielle Komponente vermuten. Möglich ist das wie in Kapitel 4.2 durch den fließenden Strom, der jetzt hier nicht gemessen wurde, joulsche Wärme entsteht, diese ist wie oben schon gezeigt quadratisch von der Stromstärke abhängig. Trotzdem befinden sich die zwei errechnetet Seebeck-Koeffizenten in der gleichen Größenordnung, der unterschied liegt bei einem Faktor von ca. 1,5, somit liegen beide Ergebnisse ingesamt auch in einer realistischen Größenordnung. Der Unterschied zum Seebeck-Koeffizent des Thermoelemts hingegen ist sehr groß der Faktor betragt hier ungefähr 1000, wobei der Seebeck-Koeffizent des Petier-Elements deutlich größer als der des Thermoelemts ist. Das beteutet das, dass Petier-Element deutlich effizienter Wärme in elektrische Spannung umzuwandeln kann. Wenn man die Gleichung 
+
+gegeben ist. Somit überschneiden sich diese zwei Ergebnisse auch mit dem Maximalfehler um $0{,}05 \cdot 10^{-2} \frac{\text{V}}{\text{K}}$ nicht. Zudem ist der Fehler des Seebeck-Koeffizienten, welcher mithilfe der Grafik erstellt wurde, sehr groß; der relative Fehler beträgt ca. 26\,\%. Der Verlauf der Punkte in Grafik \ref{tb:steig3} lässt auch eine exponentielle Komponente vermuten. Möglich ist, dass , wie in Kapitel 4.2 , durch den fließenden Strom, der hier nicht gemessen wurde, joulesche Wärme entsteht; diese ist, wie oben gezeigt, quadratisch von der Stromstärke abhängig. Dies könnte die quadratische Abhängigkeit erzeugen. Trotzdem befinden sich die zwei errechneten Seebeck-Koeffizienten in der gleichen Größenordnung; der Unterschied liegt bei einem Faktor von ca. 1{,}5. Somit liegen beide Ergebnisse insgesamt auch in einer realistischen Größenordnung. Der Unterschied zum Seebeck-Koeffizienten des Thermoelements hingegen ist sehr groß; der Faktor beträgt hier ungefähr 1000, wobei der Seebeck-Koeffizient des Peltier-Elements deutlich größer als der des Thermoelements ist. Das bedeutet, dass das Peltier-Element deutlich effizienter Wärme in elektrische Spannung umwandeln kann. Wenn man die Gleichung
+
 \begin{equation}
 \alpha_{\text{AB}} = \alpha_{\text{A}} - \alpha_{\text{B}}
 \end{equation}
 
-betrachtet heißt das zum einen das im Peltier-Element der unterschied der Seebeck-Koeffizenten der zwei Stogge tendenziell höher ist, zum anderen das der Stoff A tendenziell einen höhern Seebeck-Koeffizent als sein gegenstück vom Thermo-Element hatt. Der große Untscheid der Seebeck-Koeffizent beim Peltier-Element ergibt sinn, da es mit einer differenz der Fermienergie der Materialen arbeitet, welche nach Gleichung \ref{material_abhängig_seebeck}den Seebeck-Koeffizenten mitbestimmen. 
+betrachtet, heißt das zum einen, dass im Peltier-Element der Unterschied der Seebeck-Koeffizienten der zwei Stoffe tendenziell höher ist, zum anderen, dass der Stoff A tendenziell einen höheren Seebeck-Koeffizienten als sein Gegenstück vom Thermoelement hat. Der große Unterschied der Seebeck-Koeffizienten beim Peltier-Element ergibt Sinn, da das Peltier-Element mit einer Differenz der Fermienergien der Materialien arbeitet, welche nach Gleichung \ref{material_abhängig_seebeck} den Seebeck-Koeffizienten mitbestimmen.
